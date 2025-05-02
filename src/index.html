@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Lyrics</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+
+<div class="spinner"></div>
+
+<header>
+    <h1>🎵 Find lyrics 🎵</h1>
+    <div class="error hide">Error</div>
+
+    <form class="form">
+        <div class="search-container">
+            <input type="text" class="find" placeholder="Find Artist or Song Name" required>
+            <button class="btn-find" type="submit">Find</button>
+        </div>
+    </form>
+
+    <span class="reload"><a href="index.html">🔄</a></span>
+</header>
+
+<div class="content">
+    <div class="titles">
+        <div>Cover</div>
+        <div>Title</div>
+        <div>Album</div>
+        <div>Artist</div>
+        <div>Lyric</div>
+    </div>
+
+
+    <div class="show-lyric"> </div>
+        <span class="close">X</span>
+
+    <div class="show"></div>
+</div>
+
+<div class="navigation"></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

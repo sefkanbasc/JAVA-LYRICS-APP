@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    background: rgb(245, 245, 245);
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+h1 {
+    margin-top: 20px;
+    letter-spacing: .1em;
+    text-align: center;
+}
+
+header {
+    background: rgb(51, 51, 51);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-top: 10px;
+}
+
+.search-container input.find {
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #333;
+    padding: 10px;
+    font-size: 1.2rem;
+    width: 300px;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-container input.find::placeholder {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.search-container button.btn-find {
+    cursor: pointer;
+    border: none;
+    background: #4b4b4b;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 0 5px 5px 0;
+    transition: all 0.3s ease;
+}
+
+.search-container button.btn-find:hover {
+    transform: scale(1.1);
+    background: #666;
+}
+
+input:focus {
+    outline: none;
+    border-color: #9900ff;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: #4b4b4b;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #666;
+}
+
+.reload a {
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.content {
+    padding: 20px;
+    color: #333;
+}
+
+.titles {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #9900ff;
+    opacity: 0;
+    transition: 0.5s ease;
+}
+
+.titles.show-titles {
+    opacity: 1;
+}
+
+.show {
+    margin-top: 10px;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.card img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.artist a {
+    color: #333;
+    text-decoration: none;
+}
+
+.artist a:hover {
+    text-decoration: underline;
+}
+
+.center-lyric button {
+    background: #ff004c;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.navigation button {
+    margin: 0 10px;
+}
+
+.spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 6px solid #9900ff;
+    border-right-color: #6653f3;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.spinner.show-loader {
+    visibility: visible;
+    opacity: 1;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    background: rgba(0,0,0,0.8);
+    color: red;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.error.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-lyric {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background: #fff;
+    color: #333;
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 0 100vh rgba(0,0,0,0.7);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.show-lyric.show-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.close {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+    z-index: 10;
+    visibility: hidden;
+}
+
+.show-close {
+    display: block;
+    visibility: visible;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    color: #ff0000;
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search-container input.find {
+        width: 250px;
+    }
+}
